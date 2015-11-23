@@ -1,0 +1,100 @@
+{% load staticfiles %}
+{% static "" as base %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <meta name="description" content="Bijoy Singh Kochar Homepage">
+    <meta name="author" content="Bijoy Singh Kochar"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Bijoy Singh Kochar</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en"
+          rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Raleway"/>
+
+    <link rel="icon" type="image/png" href="{%  static 'images/favicon.png' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+    <meta name="theme-color" content="#dd1338">
+    <meta name="msapplication-navbutton-color" content="#dd1338">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#dd1338">
+</head>
+
+<body>
+<div class="home-page">
+    <div class="home-index">
+        <img class="thumbnail" src="{% static 'images/bijoy.jpg' %}"/>
+
+        <div class="title">
+            Bijoy Singh Kochar
+        </div>
+        <div class="list">
+            {% for page in pages %}
+            <a class="page-item item" href="#content{{ page.id }}"> {{ page.title }}</a>
+            {% endfor %}
+        </div>
+        <div class="base">
+            Bijoy Singh Kochar &copy; 2015
+        </div>
+    </div>
+    <div class="home-content">
+        {% for page in pages %}
+        <div class="page-text" id="content{{ page.id }}">
+            <div class="title">
+                {{ page.title }}
+            </div>
+            <div class="description">
+                {% autoescape off %}{{ page.description }}{% endautoescape %}
+            </div>
+            <div class="list">
+                {% for card in page.cards %}
+                <div class="item">
+                    <div class="thumbnail">
+                        {% if card.image != None and card.image != '' %}
+                        <img src="{{ base }}/images/{{ card.image }}"/>
+                        {% endif %}
+                    </div>
+                    <div class="content">
+                        <div class="title">
+                            {{ card.title }}
+                        </div>
+                        <div class="time">
+                            Updated {{ card.last_updated }}
+                        </div>
+                        <div class="description">
+                            {% autoescape off %}{{ card.description }}{% endautoescape %}
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+</div>
+
+<script type="application/javascript" src="{% static 'js/jquery.js' %}"></script>
+<script>
+    $('a.page-item').click(function () {
+        var element = $(this).attr('href');
+        hideAllPages();
+        $(element).show();
+    });
+
+    $(document).ready(function () {
+        hideAllPages();
+        $("#content1").show();
+    });
+
+    function hideAllPages() {
+        $('.page-text').hide();
+    }
+</script>
+</body>
+</html>
