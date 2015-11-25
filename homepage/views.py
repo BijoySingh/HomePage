@@ -8,9 +8,9 @@ from .models import Access, Card, Category
 
 
 def index(request):
-    access = Access()
-    access.ip = Access.get_client_ip(request)
-    access.save()
+    # access = Access()
+    # access.ip = Access.get_client_ip(request)
+    # access.save()
 
     cards_map = defaultdict(list)
     cards = Card.objects.all().order_by('-last_updated')
