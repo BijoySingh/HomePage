@@ -166,7 +166,8 @@
     margin: 0px 24px; 
 }
 
-.home-content .page-text .list .item .title {
+.home-content .page-text .list .item .name {
+    flex-grow: 1;
     padding: 0px;
     font-size: 1.2em;
     font-weight: 300;
