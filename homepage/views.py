@@ -24,7 +24,7 @@ def index(request):
         pages.append(page)
 
     reviews_map = defaultdict(list)
-    reviews = Reviews.objects.all().order_by('-created')
+    reviews = Reviews.objects.all().order_by('-score')
     for review in reviews:
         review.description = markdown.markdown(review.description)
         reviews_map[review.category.id].append(review)
