@@ -35,7 +35,7 @@
         <div class="title">
             Bijoy Singh Kochar
         </div>
-        <div class="cards list">
+        <div class="cards">
             {% for page in pages %}
             <a class="page-item item" href="#content{{ page.id }}"> 
                 {{ page.title }}
@@ -63,7 +63,7 @@
             <div class="description">
                 {% autoescape off %}{{ page.description }}{% endautoescape %}
             </div>
-            <div class="cards list">
+            <div class="cards">
                 {% for card in page.cards %}
                 <div class="item">
                     <div class="thumbnail">
