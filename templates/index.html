@@ -18,8 +18,8 @@
           rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Raleway"/>
 
-    <link rel="icon" type="image/png" href="{{ base }}/images/favicon.png">
-    <link rel="stylesheet" href="{{ base }}/css/style.css">
+    <link rel="icon" type="image/png" href="{% static 'images/favicon.png' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
 
     <meta name="theme-color" content="#dd1338">
     <meta name="msapplication-navbutton-color" content="#dd1338">
@@ -30,7 +30,7 @@
 <div class="home-page">
     
     <div class="home-index">
-        <img class="thumbnail" src="{{ base }}/images/bijoy.jpg"/>
+        <img class="thumbnail" src="{% static 'images/bijoy.jpg' %}"/>
 
         <div class="title">
             Bijoy Singh Kochar
@@ -118,7 +118,7 @@
     </div>
 </div>
 
-<script type="application/javascript" src="{{ base }}/js/jquery.js"></script>
+<script type="application/javascript" src="{% static 'js/jquery.js' %}"></script>
 <script>
     $('a.page-item').click(function () {
         var element = $(this).attr('href');
