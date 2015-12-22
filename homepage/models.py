@@ -6,7 +6,6 @@ class Category(models.Model):
     title = models.CharField(max_length=100)
     description = models.TextField(blank=True)
 
-
 class Card(models.Model):
     title = models.CharField(max_length=100)
     description = models.TextField(blank=True)
@@ -25,3 +24,15 @@ class Access(models.Model):
         if x_forwarded_for:
             return x_forwarded_for.split(',')[0]
         return request.META.get('REMOTE_ADDR')
+
+class ReviewCategory(models.Model):
+    id = models.IntegerField(unique=True, primary_key=True)
+    title = models.CharField(max_length=100)
+    description = models.TextField(blank=True)
+
+class Reviews(models.Model):
+    title = models.CharField(max_length=100)
+    description = models.CharField(max_length=100, blank=True)
+    category = models.ForeignKey(ReviewCategory)
+    score = models.IntegerField(choices=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
+    created = models.DateTimeField(auto_now=True)

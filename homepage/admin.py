@@ -7,6 +7,10 @@ class CategoryAdmin(admin.ModelAdmin):
     list_display = ('id', 'title')
 
 
+class ReviewCategoryAdmin(admin.ModelAdmin):
+    list_display = ('id', 'title')
+
+
 class CardAdmin(admin.ModelAdmin):
     model = Card
     list_display = ['title', 'description', 'get_category', ]
@@ -22,6 +26,18 @@ class AccessAdmin(admin.ModelAdmin):
     list_display = ['time', 'ip', ]
 
 
+class ReviewsAdmin(admin.ModelAdmin):
+    list_display = ['title', 'description', 'get_category', 'score', 'created']
+
+    def get_category(self, obj):
+        return obj.category.title
+
+    get_category.admin_order_field = 'category__title'
+    get_category.short_description = 'Category'
+
+
 admin.site.register(Category, CategoryAdmin)
 admin.site.register(Card, CardAdmin)
 admin.site.register(Access, AccessAdmin)
+admin.site.register(ReviewCategory, ReviewCategoryAdmin)
+admin.site.register(Reviews, ReviewsAdmin)
