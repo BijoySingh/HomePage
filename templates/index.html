@@ -35,7 +35,7 @@
         <div class="title">
             Bijoy Singh Kochar
         </div>
-        <div class="cards">
+        <div class="cards list">
             {% for page in pages %}
             <a class="page-item item" href="#content{{ page.id }}"> 
                 {{ page.title }}
@@ -63,7 +63,7 @@
             <div class="description">
                 {% autoescape off %}{{ page.description }}{% endautoescape %}
             </div>
-            <div class="cards">
+            <div class="cards list">
                 {% for card in page.cards %}
                 <div class="item">
                     <div class="thumbnail">
@@ -90,8 +90,8 @@
         </div>
         {% endfor %}
 
-        {% for page in pages %}
-        <div class="page-text" id="content_movie_reviews">
+        {% for page in reviews %}
+        <div class="page-text" id="review{{ page.id }}">
             <div class="title">
                 {{ page.title }}
             </div>
@@ -105,7 +105,7 @@
                             {{ item.score }}
                         </div>
                         <div class="title">
-                            {{ item.name }}
+                            {{ item.title }}
                         </div>
                         <div class="time">
                             {{ item.created }}

@@ -34,5 +34,5 @@ class Reviews(models.Model):
     title = models.CharField(max_length=100)
     description = models.CharField(max_length=100, blank=True)
     category = models.ForeignKey(ReviewCategory)
-    score = models.IntegerField(choices=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
+    score = models.IntegerField()
     created = models.DateTimeField(auto_now=True)
