@@ -8,7 +8,7 @@ class Category(models.Model):
     title = models.CharField(max_length=100)
     description = models.TextField(blank=True)
 
-    def __str__():
+    def __str__(self):
         return title
 
 class Card(models.Model):
@@ -26,6 +26,9 @@ class ReviewCategory(models.Model):
     title = models.CharField(max_length=100)
     description = models.TextField(blank=True)
 
+    def __str__(self):
+        return title
+
 class Reviews(models.Model):
     title = models.CharField(max_length=100)
     description = models.CharField(max_length=100, blank=True)
@@ -41,6 +44,9 @@ class BlogCategory(models.Model):
     id = models.IntegerField(unique=True, primary_key=True)
     title = models.CharField(max_length=100)
     description = models.TextField(blank=True)
+    
+    def __str__(self):
+        return title
 
 class Blog(models.Model):
     position = models.IntegerField()
