@@ -4,7 +4,7 @@ import markdown
 from django.shortcuts import render
 
 from .classes import Page
-from .models import Access, Card, Category, Reviews, ReviewCategory
+from .models import Access, Card, Category, Reviews, ReviewCategory, Blog, BlogCategory
 
 
 def index(request):
