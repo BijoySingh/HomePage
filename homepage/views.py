@@ -47,7 +47,7 @@ def blog(request):
     blogs = Blog.objects.all().order_by('position')
     for blog in blogs:
         blog.description = markdown.markdown(blog.description)
-        blogs_map[blog.category.id].append(blog)
+        blog_map[blog.category.id].append(blog)
 
     pages = list()
     categories = BlogCategory.objects.all().order_by('id')
@@ -55,7 +55,7 @@ def blog(request):
         page = Page(id=category.id,
                     title=category.title,
                     description=markdown.markdown(category.description),
-                    cards=blogs_map[category.id])
+                    cards=blog_map[category.id])
         pages.append(page)
 
     context = {'pages': pages}
