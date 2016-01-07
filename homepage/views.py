@@ -63,6 +63,6 @@ def blog(request):
     client_ip = AccessCount.get_client_ip(request)
     access_count, created = AccessCount.objects.get_or_create(ip=client_ip)
     access_count.visit_count += 1
-    access_count.save
+    access_count.save()
 
     return render(request, 'blog.html', context)
