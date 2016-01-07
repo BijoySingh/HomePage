@@ -3,5 +3,5 @@ class Page:
         self.id = id
         self.title = title
         self.description = description
-        self.cards = card
+        self.cards = cards
 
