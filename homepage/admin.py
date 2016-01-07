@@ -25,7 +25,7 @@ class CardAdmin(admin.ModelAdmin):
 
 
 class AccessAdmin(admin.ModelAdmin):
-    list_display = ['time', 'ip', ]
+    list_display = ['ip', 'visit_count']
 
 
 class ReviewsAdmin(admin.ModelAdmin):
@@ -51,7 +51,7 @@ class BlogAdmin(admin.ModelAdmin):
 
 admin.site.register(Category, CategoryAdmin)
 admin.site.register(Card, CardAdmin)
-admin.site.register(Access, AccessAdmin)
+admin.site.register(AccessCount, AccessAdmin)
 admin.site.register(ReviewCategory, ReviewCategoryAdmin)
 admin.site.register(Reviews, ReviewsAdmin)
 admin.site.register(Blog, BlogAdmin)
