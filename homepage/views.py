@@ -4,7 +4,7 @@ import markdown
 from django.shortcuts import render
 
 from .classes import Page
-from .models import Access, Card, Category, Reviews, ReviewCategory, Blog, BlogCategory
+from .models import AccessCount, Card, Category, Reviews, ReviewCategory, Blog, BlogCategory
 
 
 def index(request):
@@ -39,8 +39,8 @@ def index(request):
         review_pages.append(page)
 
     context = {'pages': pages, 'reviews': review_pages}
-    return render(request, 'index.html', context)
 
+    return render(request, 'index.html', context)
 
 def blog(request):
     blog_map = defaultdict(list)
@@ -59,4 +59,10 @@ def blog(request):
         pages.append(page)
 
     context = {'pages': pages}
+
+    client_ip = AccessCount.get_client_ip(request)
+    access_count, created = AccessCount.objects.get_or_create(ip=client_ip)
+    access_count.visit_count += 1
+    access_count.save
+
     return render(request, 'blog.html', context)

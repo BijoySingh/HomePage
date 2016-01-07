@@ -62,9 +62,9 @@ class Image(models.Model):
 """
 Access
 """
-class Access(models.Model):
-    time = models.DateTimeField(auto_now=True)
+class AccessCount(models.Model):
     ip = models.CharField(blank=True, max_length=100)
+    visit_count =  models.IntegerField(default=0)
 
     @staticmethod
     def get_client_ip(request):
