@@ -53,7 +53,7 @@ class BlogCategory(models.Model):
 class Blog(models.Model):
     position = models.IntegerField()
     title = models.CharField(max_length=100)
-    description = RichTextField(blank=True)
+    description = models.TextField(blank=True)
     category = models.ForeignKey(BlogCategory)
     last_updated = models.DateTimeField(auto_now=True)
 
