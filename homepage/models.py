@@ -1,6 +1,5 @@
 from django.db import models
 from ckeditor.fields import RichTextField
-from ckeditor.widgets import CKEditorWidget
 
 """
 Cards
@@ -54,7 +53,7 @@ class BlogCategory(models.Model):
 class Blog(models.Model):
     position = models.IntegerField()
     title = models.CharField(max_length=100)
-    description = models.TextField(blank=True, widget=CKEditorWidget())
+    description = RichTextField(blank=True)
     category = models.ForeignKey(BlogCategory)
     last_updated = models.DateTimeField(auto_now=True)
 
