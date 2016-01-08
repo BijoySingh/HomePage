@@ -37,6 +37,9 @@
             Bijoy Singh Kochar
         </div>
         <div class="cards">
+            <a class="page-item item" href="../"> 
+                Home
+            </a>
             {% for page in pages %}
             <a class="page-item item" href="#content{{ page.id }}"> 
                 {{ page.title }}
@@ -68,7 +71,7 @@
                         <div class="time">
                             Updated {{ card.last_updated }}
                         </div>
-                        <div class="description" style="padding: 0 20px;">
+                        <div class="description" style="padding: 0 20px;">  
                             {% autoescape off %}
                             {{ card.description }}
                             {% endautoescape %}

@@ -38,6 +38,8 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'HomePage',
     'homepage',
+    'ckeditor',
+    'ckeditor_uploader',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -101,4 +103,8 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [ os.path.join(BASE_DIR, 'HomePage/static'), ]
 STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles/")
-
+MEDIA_ROOT = os.path.join(BASE_DIR, "media/")
+MEDIA_URL = os.path.join(BASE_DIR, "media/")
+CKEDITOR_JQUERY_URL = '//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js'
+CKEDITOR_UPLOAD_PATH = "uploads/"
+CKEDITOR_IMAGE_BACKEND = 'pillow'
