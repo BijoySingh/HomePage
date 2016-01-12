@@ -269,6 +269,7 @@
 }
 
 @media screen and (max-width: 1000px) and (min-width: 600px) {
+    
     .home-content .page-text .cards .item img {
         width: 200px;
         height: auto;
@@ -287,6 +288,7 @@
 }
 
 pre {
+    white-space: pre-wrap;
     border-radius: 5px;
     padding: 20px;
     background-color: #eaeaea;
