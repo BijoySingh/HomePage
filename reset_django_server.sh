@@ -1,4 +1,3 @@
-workon homepageenv
 kill $(ps aux | grep uwsgi | grep socket | awk '{print $2}')
 python manage.py makemigrations
 python manage.py migrate
