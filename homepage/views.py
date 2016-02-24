@@ -40,7 +40,7 @@ def index(request):
 
     context = {'pages': pages, 'reviews': review_pages}
 
-    return render(request, 'index.html', context)
+    return render(request, 'index.min.html', context)
 
 def blog(request):
     blog_map = defaultdict(list)
