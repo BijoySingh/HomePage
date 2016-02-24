@@ -9,7 +9,7 @@
 }
 
 .flex-item {
-    flex-grow: 1;
+    flex-grow: 1; -webkit-flex-grow: 1; -moz-flex-grow: 1;
 }
 
 .home-page {
@@ -20,6 +20,8 @@
     height: 100%;
     display: flex;
     flex-direction: row;
+    -webkit-flex-direction: row;
+    -moz-flex-direction: row;
 }
 
 .home-index {
@@ -35,7 +37,7 @@
 .home-content {
     background-color: #ffffff;
     overflow-y: auto;
-    flex-grow: 1;
+    flex-grow: 1; -webkit-flex-grow: 1; -moz-flex-grow: 1;
 }
 
 .home-index hr {
@@ -58,6 +60,8 @@
 .home-index .cards {
     display: flex;
     flex-direction: column;
+    -webkit-flex-direction: column;
+    -moz-flex-direction: column;
 }
 
 .home-index .base {
@@ -115,7 +119,7 @@
 }
 
 .home-content .page-text .cards .item .content {
-    flex-grow: 1;
+    flex-grow: 1; -webkit-flex-grow: 1; -moz-flex-grow: 1;
 }
 
 .home-content .page-text .cards .item .content .title {
@@ -167,7 +171,7 @@
 }
 
 .home-content .page-text .list .item .name {
-    flex-grow: 1;
+    flex-grow: 1; -webkit-flex-grow: 1; -moz-flex-grow: 1;
     padding: 0px;
     font-size: 1.2em;
     font-weight: 300;
@@ -192,6 +196,9 @@
 
     .home-page {
         flex-direction: column;
+        -webkit-flex-direction: column;
+        -moz-flex-direction: column;
+
         height: auto;
         overflow-y: scroll;
     }
@@ -209,7 +216,7 @@
 
     .home-index .cards {
         padding: 5px;
-        flex-grow: 1;
+        flex-grow: 1; -webkit-flex-grow: 1; -moz-flex-grow: 1;
     }
 
     .home-index .cards .item {
