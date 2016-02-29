@@ -112,6 +112,6 @@ CKEDITOR_IMAGE_BACKEND = 'pillow'
 CACHES = {
     'default': {
         'BACKEND': 'django.core.cache.backends.memcached.PyLibMCCache',
-        'LOCATION': '/tmp/memcached.sock',
+        'LOCATION': '127.0.0.1:11211',
     }
 }
