@@ -1,0 +1,86 @@
+{% load staticfiles %}
+{% static "" as base %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <meta name="description" content="Bijoy Singh Kochar Homepage">
+    <meta name="author" content="Bijoy Singh Kochar"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="Bijoy,Kochar,IIT,Bombay,CSE,Android,Blog,Activity,Fragment,Github">
+
+    <title>Bijoy Singh Kochar</title>
+
+    <link rel="icon" type="image/png" href="{% static 'images/favicon.png' %}">
+    <link rel="stylesheet" href="{% static 'css/style.min.css' %}">
+
+    <meta name="theme-color" content="#dd1338">
+    <meta name="msapplication-navbutton-color" content="#dd1338">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#dd1338">
+</head>
+
+<body>
+<div class="home-page">
+    <div class="home-index">
+        <img class="thumbnail" src="{% static 'images/bijoy.jpg' %}"/>
+
+        <div class="title">
+            Bijoy Singh Kochar
+        </div>
+        <div class="cards">
+            {% block index %}
+            {% endblock %}
+        </div>
+        <div class="base">
+            Bijoy Singh Kochar &copy; 2015
+        </div>
+    </div>
+
+
+    <div class="home-content">
+        {% block content %}
+        {% endblock %}
+    </div>
+</div>
+
+<script>
+    var cb = function () {
+        var h = document.getElementsByTagName('head')[0];
+        var l = document.createElement('link');
+        l.rel = 'stylesheet';
+        l.href = 'https://fonts.googleapis.com/css?family=Raleway';
+        h.parentNode.insertBefore(l, h);
+        var l = document.createElement('link');
+        l.rel = 'stylesheet';
+        l.href = 'https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en';
+        h.parentNode.insertBefore(l, h);
+        h.parentNode.insertBefore(l, h);
+    };
+    var raf = requestAnimationFrame || mozRequestAnimationFrame ||
+            webkitRequestAnimationFrame || msRequestAnimationFrame;
+    if (raf) raf(cb);
+    else window.addEventListener('load', cb);
+</script>
+<script>cd
+    (function (i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r;
+        i[r] = i[r] || function () {
+                    (i[r].q = i[r].q || []).push(arguments)
+                }, i[r].l = 1 * new Date();
+        a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0];
+        a.async = 1;
+        a.src = g;
+        m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+    ga('create', 'UA-73798143-2', 'auto');
+    ga('send', 'pageview');
+
+</script>
+</body>
+</html>
