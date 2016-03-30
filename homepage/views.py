@@ -2,11 +2,15 @@ from collections import defaultdict
 
 import markdown
 from django.shortcuts import render
+from django.views.decorators.cache import cache_page
+from htmlmin.decorators import minified_response
 
 from .classes import Page
 from .models import AccessCount, Card, Category, Reviews, ReviewCategory, Blog, BlogCategory
 
 
+@minified_response
+@cache_page(60 * 60)
 def index(request):
     cards_map = defaultdict(list)
     cards = Card.objects.all().order_by('-last_updated')
@@ -42,6 +46,9 @@ def index(request):
 
     return render(request, 'index.html', context)
 
+
+@minified_response
+@cache_page(60 * 60)
 def blog(request):
     blog_map = defaultdict(list)
     blogs = Blog.objects.all().order_by('position')
